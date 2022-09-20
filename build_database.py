@@ -323,15 +323,20 @@ if __name__ == "__main__":
 
     # Build database
     with open("data_tables.sql") as f:
-        sql_query = f.read()
+        data_tables_query = f.read()
+
+    with open("poc_tables.sql") as f:
+        poc_tables_query = f.read()
 
     with sqlite3.connect("bar_database.db") as connection:
 
         c = connection.cursor()
-        c.executescript(sql_query)
+        c.executescript(data_tables_query)
 
         df_glasses.to_sql("glasses", connection, if_exists="append", index=False)
         df_bars.to_sql("bars", connection, if_exists="append", index=False)
         df_drinks.to_sql("drinks", connection, if_exists="append", index=False)
         df_inventory.to_sql("inventory", connection, if_exists="append", index=False)
         df_orders.to_sql("orders", connection, if_exists="append", index=False)
+
+        c.executescript(poc_tables_query)
