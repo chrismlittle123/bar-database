@@ -26,3 +26,8 @@ A SQL file with the CREATE TABLE statements for setting up the bar_database.db S
 ### bar-database
 
 - A repository which is in good condition for analysts to take over your work.
+
+### poc_tables.sql
+
+- A SQL file with the queries to create a PoC table for the bar staff to manage glass stock.
+- The table should show the glasses ordered in each bar on each day, which will help with managing stock levels as you can identify a pattern of orders and then choose daily inventory accordingly.
